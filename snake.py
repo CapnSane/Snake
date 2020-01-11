@@ -171,16 +171,16 @@ class App:
             pygame.event.pump()
             keys = pygame.key.get_pressed() 
 
-            if (keys[K_d]):
+            if (keys[K_d] or keys[K_RIGHT]):
                 self.player.moveRight()
 
-            if (keys[K_a]):
+            if (keys[K_a] or keys[K_LEFT]):
                 self.player.moveLeft()
 
-            if (keys[K_w]):
+            if (keys[K_w] or keys[K_UP]):
                 self.player.moveUp()
 
-            if (keys[K_s]):
+            if (keys[K_s] or keys[K_DOWN]):
                 self.player.moveDown()
 
             if (keys[K_ESCAPE]):
