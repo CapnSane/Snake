@@ -2,6 +2,9 @@ from pygame.locals import *
 from random import randint
 import pygame
 import time
+import os
+
+ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
 
 class Apple:
     x = 0
@@ -103,12 +106,12 @@ class App:
 
         self._display_surf = pygame.display.set_mode((self.windowWidth,self.windowHeight), pygame.HWSURFACE)
 
-        pygame.mixer.Channel(0).play(pygame.mixer.Sound('C:/Users/lnrds/Desktop/Snake/cobra.wav'))
+        pygame.mixer.Channel(0).play(pygame.mixer.Sound(os.path.join(ROOT_PATH, 'cobra.wav')))
         pygame.display.set_caption('Pygame pythonspot.com example')
         
         self._running = True
-        self._image_surf = pygame.image.load("C:/Users/lnrds/Desktop/Snake/pygame.png").convert()
-        self._apple_surf = pygame.image.load("C:/Users/lnrds/Desktop/Snake/apple.png").convert()
+        self._image_surf = pygame.image.load(os.path.join(ROOT_PATH, "pygame.png")).convert()
+        self._apple_surf = pygame.image.load(os.path.join(ROOT_PATH, "apple.png")).convert()
 
     def on_event(self, event):
         if event.type == QUIT:
@@ -122,7 +125,7 @@ class App:
                 self.apple.x = randint(2,9) * 44
                 self.apple.y = randint(2,9) * 44
                 self.player.length = self.player.length + 1
-                pygame.mixer.music.load('C:/Users/lnrds/Desktop/Snake/colision.wav')
+                pygame.mixer.music.load(os.path.join(ROOT_PATH, 'colision.wav'))
                 pygame.mixer.music.play(0)
 
 
